@@ -1,0 +1,10 @@
+# Ignore rig_display_app since it's not needed on Vercel
+rig_display_app/
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+*.log
+
+# Node
+node_modules/

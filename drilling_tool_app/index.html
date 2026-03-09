@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Drilling Tool Inventory</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <h1>Tool Inventory</h1>
+            <p>Drilling tool tracking application</p>
+        </header>
+
+        <form id="toolForm" class="tool-form" novalidate>
+            <!-- Tool Name -->
+            <div class="form-group">
+                <label for="toolName">Tool Name <span class="required">*</span></label>
+                <input type="text" id="toolName" name="toolName" placeholder="e.g. Tricone Bit 6 inch" required>
+            </div>
+
+            <!-- Photo Upload -->
+            <div class="form-group form-group-photo">
+                <label>Photo <span class="required">*</span></label>
+                <div class="photo-upload-container">
+                    <input type="file" id="photoUpload" name="photo" accept="image/*" capture="environment" hidden>
+                    <button type="button" class="upload-btn" id="uploadBtn">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z">
+                            </path>
+                            <circle cx="12" cy="13" r="4"></circle>
+                        </svg>
+                        <span>Take Photo or Upload</span>
+                    </button>
+                    <div id="photoPreview" class="photo-preview hidden">
+                        <img id="previewImg" src="" alt="Preview">
+                        <button type="button" class="remove-photo" id="removePhotoBtn">×</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Status/State -->
+            <div class="form-group">
+                <label>Status <span class="required">*</span></label>
+                <div class="radio-group" id="statusGroup">
+                    <label class="radio-card">
+                        <input type="radio" name="toolStatus" value="Inventory" required>
+                        <span class="radio-content">Inventory</span>
+                    </label>
+                    <label class="radio-card">
+                        <input type="radio" name="toolStatus" value="Essential">
+                        <span class="radio-content">Essential</span>
+                    </label>
+                    <label class="radio-card">
+                        <input type="radio" name="toolStatus" value="Available">
+                        <span class="radio-content">Available</span>
+                    </label>
+                    <label class="radio-card">
+                        <input type="radio" name="toolStatus" value="Desired">
+                        <span class="radio-content">Desired</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Footage Range -->
+            <div class="form-group">
+                <label>Footage Range (ft) <span class="required">*</span></label>
+                <div class="radio-group" id="footageGroup">
+                    <label class="radio-card">
+                        <input type="radio" name="footageRange" value="0-200" required>
+                        <span class="radio-content">0-200</span>
+                    </label>
+                    <label class="radio-card">
+                        <input type="radio" name="footageRange" value="200-500">
+                        <span class="radio-content">200-500</span>
+                    </label>
+                    <label class="radio-card">
+                        <input type="radio" name="footageRange" value="500+">
+                        <span class="radio-content">500+</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="submit-btn">
+                <span>Submit Tool Data</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="22" y1="2" x2="11" y2="13"></line>
+                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                </svg>
+            </button>
+            <div id="successMessage" class="success-message hidden">
+                Data submitted successfully! Ready for the next tool.
+            </div>
+        </form>
+    </div>
+
+    <!-- Telegram Web App SDK (Optional, for Telegram specific features later) -->
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

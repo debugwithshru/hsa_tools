@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Rig Selection Form</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <h1>Rig Selection</h1>
+            <p>Select rigged details for active drilling</p>
+        </header>
+
+        <form id="rigForm" class="tool-form" novalidate>
+            <!-- Rig Selection -->
+            <div class="form-group">
+                <label for="rigSelect">Rig Selection <span class="required">*</span></label>
+                <div class="custom-select-wrapper">
+                    <select id="rigSelect" name="rig" required>
+                        <option value="" disabled selected>Select a Rig</option>
+                        <option value="Rig 01">Rig 01</option>
+                        <option value="Rig 02">Rig 02</option>
+                        <option value="Rig 03">Rig 03</option>
+                        <option value="Rig 04">Rig 04</option>
+                        <option value="Rig 05">Rig 05</option>
+                        <option value="Rig 06">Rig 06</option>
+                        <option value="Rig 07">Rig 07</option>
+                        <option value="Rig 08">Rig 08</option>
+                        <option value="Rig 09">Rig 09</option>
+                        <option value="Rig 10">Rig 10</option>
+                        <option value="Rig 11">Rig 11</option>
+                        <option value="Rig 12">Rig 12</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Footage Range -->
+            <div class="form-group">
+                <label for="footageSelect">Footage Range (ft) <span class="required">*</span></label>
+                <div class="custom-select-wrapper">
+                    <select id="footageSelect" name="footage_range" required>
+                        <option value="" disabled selected>Select Footage Range</option>
+                        <option value="0-200">0-200</option>
+                        <option value="200-500">200-500</option>
+                        <option value="500+">500+</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="submit-btn" id="submitBtn">
+                <span>Submit Rig Data</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="22" y1="2" x2="11" y2="13"></line>
+                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                </svg>
+            </button>
+            <div id="successMessage" class="success-message hidden">
+                Data submitted successfully! Ready for another entry.
+            </div>
+        </form>
+    </div>
+
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

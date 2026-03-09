@@ -97,6 +97,12 @@ document.addEventListener('DOMContentLoaded', () => {
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
 
+        // Get Telegram User Info
+        let telegramUserId = null;
+        if (window.Telegram && window.Telegram.WebApp && window.Telegram.WebApp.initDataUnsafe.user) {
+            telegramUserId = window.Telegram.WebApp.initDataUnsafe.user.id;
+        }
+
         // Gather Data for validation
         const formData = new FormData(form);
         const payload = {
@@ -104,6 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
             status: formData.get('toolStatus'),
             footageRange: formData.get('footageRange'),
             photoBase64: currentPhotoBase64,
+            telegram_user_id: telegramUserId,
             timestamp: new Date().toISOString()
         };
 
@@ -150,6 +157,9 @@ document.addEventListener('DOMContentLoaded', () => {
             if (WEBHOOK_URL) {
                 const submitData = new FormData(form);
                 submitData.append('timestamp', payload.timestamp);
+                if (payload.telegram_user_id) {
+                    submitData.append('telegram_user_id', payload.telegram_user_id);
+                }
 
                 const response = await fetch(WEBHOOK_URL, {
                     method: 'POST',

@@ -13,10 +13,17 @@ document.addEventListener('DOMContentLoaded', () => {
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
 
+        // Get Telegram User Info
+        let telegramUserId = null;
+        if (window.Telegram && window.Telegram.WebApp && window.Telegram.WebApp.initDataUnsafe.user) {
+            telegramUserId = window.Telegram.WebApp.initDataUnsafe.user.id;
+        }
+
         // Gather Data 
         const payload = {
             rig: rigSelect.value,
             footage_range: footageSelect.value,
+            telegram_user_id: telegramUserId,
             timestamp: new Date().toISOString()
         };
 

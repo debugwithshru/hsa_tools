@@ -1,0 +1,12 @@
+{
+    "rewrites": [
+        {
+            "source": "/drilling_tool_app/(.*)",
+            "destination": "/drilling_tool_app/$1"
+        },
+        {
+            "source": "/rig_form_app/(.*)",
+            "destination": "/rig_form_app/$1"
+        }
+    ]
+}
